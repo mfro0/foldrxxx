@@ -75,7 +75,7 @@ void __main(void)
 	;
 }
 
-struct paragraph new_chain[999];
+struct paragraph new_chain[0];
 
 extern uint32_t program_length;
 
