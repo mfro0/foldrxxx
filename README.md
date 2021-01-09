@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mfro0/foldrxxx.svg?branch=master)](https://travis-ci.org/mfro0/foldrxxx)
+
 # foldrxxx
 a minimal reimplementation of Atari's FOLDRXXX.PRG in C
 
