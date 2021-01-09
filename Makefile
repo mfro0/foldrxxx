@@ -16,13 +16,14 @@ CFLAGS= \
 	-Os\
 	-fomit-frame-pointer \
 	-Wall\
-	-mshort\
+	-mcpu=547x \
 	-nostdlib
 	
 FOLDRXXX=foldrxxx
 APP=$(FOLDRXXX).prg
+CFAPP=$(FOLDRXCF).prg
 
-all: $(APP) 
+all: $(APP)
 
 SOURCES=startup.S $(FOLDRXXX).c
 		
@@ -38,11 +39,8 @@ $(APP): $(OBJECTS) depend
 depend: $(SOURCES)
 		$(CC) $(CFLAGS) $(INCLUDE) -M $(SOURCES) foldrxxx.c > depend
 
-test: foldrxxx.prg
-	$(HATARI) -D --tos ../emutos/etos512k.img -m --bios-intercept --cpuclock 32 --machine ste --cpulevel 3 --vdi true --vdi-planes 1 \
-	--vdi-width 800 --vdi-height 600 -d .
-
-
+release: foldrxxx.prg
+	tar cvf foldrxxx.tar.gz foldrxxx.prg
 
 	
 ifneq (clean,$(MAKECMDGOALS))
